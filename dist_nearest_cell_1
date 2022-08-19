@@ -9,32 +9,6 @@ vector<int> col = {0, -1, 1, 0};
 class Solution
 {
 public:
-    void d(int i, int j, vector<vector<int>> grid, vector<vector<int>> &dis)
-    {
-        int n = grid.size(), m = grid[0].size();
-        queue<pair<int, int>> q;
-        q.push({i, j});
-        while (!q.empty())
-        {
-            int x = q.front().first;
-            int y = q.front().second;
-            q.pop();
-            for (int t = 0; t < 4; t++)
-            {
-                int a = x + row[t], b = y + col[t];
-                if (a < 0 || a >= n || b < 0 || b >= m)
-                {
-                    continue;
-                }
-                if (grid[a][b] == 1)
-                {
-                    dis[i][j] = abs(a - i) + abs(b - j);
-                    return;
-                }
-                q.push({a, b});
-            }
-        }
-    }
     // Function to find distance of nearest 1 in the grid for each cell.
     vector<vector<int>> nearest(vector<vector<int>> grid)
     {
